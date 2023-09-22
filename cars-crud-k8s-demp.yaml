@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cars-crud-k8s-demo-deployment
+  labels:
+    app: cars-crud-k8s-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cars-crud-k8s-demo
+  template:
+    metadata:
+      labels:
+        app: cars-crud-k8s-demo
+    spec:
+      containers:
+        - name: cars-crud-k8s-demo
+          image: pvamsi5/cars_inventory_crud:firstimage
+          ports:
+            - containerPort: 8080
